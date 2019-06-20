@@ -38,13 +38,53 @@
     \end{proof}
 \end{enunciado}
 
+
+
 \section{Questão}
 \begin{enunciado}
     Mostre que $\mathbb{Z}$ é ilimitado tanto inferior quanto superiormente em
     $\mathbb{R}$.
 
     \begin{proof}[Resposta]
-        $<$TODO$>$
+        Suponhamos que $\mathbb{Z}$ seja limitado inferior ou superiormente em $\mathbb{R}$.
+        Isso vale $\iff \exists r_1, r_2 \in \mathbb{R}$ tal que $r_1 < q$ e $r_2 > q$
+        $\forall q \in \mathbb{Q}$, pela definição de conjunto limitado superior e
+        inferiormente.
+
+        Vejamos que isso não pode ser válido.
+
+        \begin{lemma}
+            $\forall r \in \mathbb{R}_{\geq 0} \enspace (\exists n \in \mathbb{N} \text{ tal que } n > r$)
+
+            \begin{proof}
+                Veja que, para todo $r < 1$, o Lema vale, pois $1 \in \mathbb{N}$ e $1 > r$. Mas $r > 1 \iff r = a + k$,
+                $0 < a < 1$, $k > 1 - a$.
+                
+                Seja $A = \left\{ x \in \mathbb{R} : x > 1 - a \right\}$ e $k = \inf A$. Observe que $1 - a > 0 \implies k > 0$,
+                e $1 - \frac{a}{2}$ é menor que $1$ e maior que $1 - a$, ou seja, $1$ está contido em $A$ mas não é
+                ínfimo de $A \implies k = \inf A < 1$.
+
+                Mas se $k \in \mathbb{R}_{\geq 0}$ e $k < 1$, sabemos que existe um $k^{\prime} \in \mathbb{N}$ tal que
+                $k^{\prime} > k$. Dessa forma, para todo $r > 1$, $k^{\prime} + a > r \implies k^{\prime} + 1 > r$.
+                
+                Como $k^{\prime} \in \mathbb{N}$, vale que $k^{\prime} + 1 \in \mathbb{N}$ também. Logo,
+                para todo $r \in \mathbb{R}_{\geq 0}$ existe um $n \in \mathbb{N}$ tal que $n > r$.
+            \end{proof}
+        \end{lemma}
+
+        Pelo lema, temos que $\mathbb{N} = \mathbb{Z}_{\geq 0}$ é ilimitado superiormente em $\mathbb{R}_{\geq 0}$.
+        Mas veja que isso também implica que $\mathbb{Z}$ é ilimitado inferiormente em $\mathbb{R}_{\leq 0}$, pois para
+        todo par $(r, z) \in \mathbb{R}_{\leq 0} \times \mathbb{Z}_{\leq 0}$, $r < z \iff -r > -z$. Como
+        $(-r, -z) \in \mathbb{R}_{\geq 0} \times \mathbb{Z}_{\geq 0}$, sabemos que para todo $r \in \mathbb{R}_{\leq 0}$
+        existe par $(-r, -z)$ tal que $-r < -z$ e, com isso, que $\mathbb{Z}_{\leq 0}$ não é limitado inferiormente
+        em $\mathbb{R}_{\leq 0}$.
+
+        Claramente, $\mathbb{Z}_{\geq 0}$ não é limitado superiormente em $\mathbb{R}_{\leq 0}$ e nem $\mathbb{Z}_{\leq 0}$
+        é limitado inferiormente em $\mathbb{R}_{\geq 0}$.
+
+        De todo modo, para todo $r \in \mathbb{R}$, existe $z \in \mathbb{Z}$ tal que $z > r$ ou $z < r$, e sendo assim
+        $\mathbb{Z}$ não é limitado em $\mathbb{R}$.
+
     \end{proof}
 \end{enunciado}
 
