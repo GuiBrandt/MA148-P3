@@ -1,0 +1,159 @@
+\documentclass[a4paper,twoside,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[explicit]{titlesec}
+\usepackage{enumitem}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{calrsfs}
+\usepackage{marvosym}
+
+\newtheorem*{enunciado}{Enunciado}
+\newtheorem*{lemma}{Lema}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{\clearpage#1\ \thesection}
+
+\begin{document}
+
+\title{MA 148 - Prova 3}
+\author{}
+\date{}
+\maketitle
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Considere o conjunto $C = {0, 1, 2} \subseteq \mathbb{Z}$.
+    Defina duas operações binárias em C, denotadas por $\oplus$ e $\odot$, por
+
+    $$m \ast n = r \qquad \text{ se } \qquad m \ast n = 3q + r$$
+
+    com $q \in \mathbb{Z}$, $r \in C$ e $\ast \in \left\{ +, . \right\}$ sendo
+    $+$ e $.$ a soma e a multiplicação de $\mathbb{Z}$. Mostre que, com estas
+    operações, $C$ se torna um corpo. Pode-se definir ordem em $C$ para
+    torná-lo um corpo ordenado?
+
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+\section{Questão}
+\begin{enunciado}
+    Mostre que $\mathbb{Z}$ é ilimitado tanto inferior quanto superiormente em
+    $\mathbb{R}$.
+
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Considere o conjunto $A = \left\{ x \in \mathbb{Q} : x > 0 \text{ e } x^2 > 2 \right\}$.
+    Mostre que A não tem mínimo.
+
+    \begin{proof}[Resposta]
+        Veja que A tem mínimo $\iff \exists m \in A \text{ tal que } m \leq x \enspace \forall x \in A$.
+
+        \begin{lemma}
+            Para todo $a \in A$, existe um $b \in A$ tal que $b < a$.
+
+            \begin{proof}
+                Veja que $a^2 > 2 \implies a^2 = 2 + k$, $k \in \mathbb{Q}_{>0}$.
+                Assim, seja $b = a - \frac{k}{2a}$. Vejamos que $b \in \mathbb{Q}_{>0}$.
+                
+                Note que $b > 0 \iff a > \frac{k}{2a}$. Mas veja que
+                \begin{equation} \label{eq:b>0}
+                    \begin{split}
+                         a \leq \frac{k}{2a} \iff 2a^2 \leq k \implies a^2 \leq k \text
+                         \qquad \text{\Lightning} \quad a > \frac{k}{2a} \implies b > 0
+                    \end{split}
+                \end{equation}
+                
+                Como $b$ é dado puramente por soma e divisão de números racionais, vale também que
+                $b \in \mathbb{Q}$. \qed
+
+                Veja também que:
+
+                \begin{equation} \label{eq:b^2_>_2}
+                    \begin{split}
+                        b^2 &= (a - \frac{k}{2a})^2 \\
+                            &= a^2 - k + \frac{k^2}{4a} \\
+                            &> a^2 - k = 2
+                    \end{split}
+                \end{equation}
+
+                Por \ref{eq:b>0} e \ref{eq:b^2_>_2}, temos que $b > 0$ e $b^2 > 2$, logo,
+                $b \in A$. Mas, visto que $k > 0$ e $a > 0 \implies \frac{k}{2a} > 0$,
+                também vale que $b < a$. \qedhere
+            \end{proof}
+        \end{lemma}
+
+        Mas veja que, pelo lema, não pode existir
+        $m \in A \text{ tal que } m \leq x \enspace \forall x \in A $, pois
+        $m \in A \implies \exists m^{\prime} \in A < m$. Logo, $A$ não tem mínimo.
+    \end{proof}
+\end{enunciado}
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Suponha que $(a_n)_{n \in \mathbb{N}}$ seja uma sequência de números racionais
+    e considere a sequência $b_n = a_{n + 148}$, $n \geq 0$. Mostre que $(a_n)_{n \in \mathbb{N}}$
+    converge se, e somente se, $(b_n)_{n \in \mathbb{N}}$ convergir.
+
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Considere a sequência $a_n = \frac{n - 1}{n}$, $n \geq 1$. Encontre $n_0 \in \mathbb{N}$
+    tal que $0,999 < a_n < 1,001$ para todo $n \geq n_0$.
+
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Mostre que a sequência $a_n = \sqrt{\frac{9n^2 + 3n - 2}{4n^2+4n}}$, $n \geq 1$, converge e
+    encontre seu limite.
+    
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+
+
+\section{Questão}
+\begin{enunciado}
+    Considere as seguintes sequências $(a_n)_{n \in \mathbb{N}^*}$ e $(b_n)_{n \in \mathbb{N}^*}$:
+
+    $$a_n = \dfrac{1}{2^{k + 1}}\quad\text{sendo } k \in \mathbb{Z} \text{ tal que}\quad 2^k < n \leq 2^{k+1} \qquad \text{e} \qquad b_n = \sum_{k=1}^n \dfrac{1}{k}$$
+
+    \begin{enumerate}[label=\alph*)]
+        \item Mostre que $(a_n)_{n \in \mathbb{N}}$ é não crescente e 
+            $(b_n)_{n \in \mathbb{N}}$ é crescrente.
+
+        \item Verifique que $a_n \leq \frac{1}{n}$ para todo $n \geq 1$ e use este fato
+        para mostrar que $$\lim_{n \rightarrow \infty}{b_n} = +\infty.$$
+    \end{enumerate}
+
+    \begin{proof}[Resposta]
+        $<$TODO$>$
+    \end{proof}
+\end{enunciado}
+
+\end{document}
