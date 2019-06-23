@@ -7,6 +7,17 @@
 \usepackage{amsmath,amsthm,amsfonts,amssymb}
 \usepackage{calrsfs}
 \usepackage{marvosym}
+\usepackage{graphicx}
+
+\makeatletter
+\newcommand{\oast}{\mathbin{\mathpalette\make@circled\ast}}
+\newcommand{\make@circled}[2]{%
+  \ooalign{$\m@th#1\smallbigcirc{#1}$\cr\hidewidth$\m@th#1#2$\hidewidth\cr}%
+}
+\newcommand{\smallbigcirc}[1]{%
+  \vcenter{\hbox{\scalebox{0.77778}{$\m@th#1\bigcirc$}}}%
+}
+\makeatother
 
 \newtheorem*{enunciado}{Enunciado}
 \newtheorem*{lemma}{Lema}
@@ -26,7 +37,7 @@
     Considere o conjunto $C = {0, 1, 2} \subseteq \mathbb{Z}$.
     Defina duas operações binárias em C, denotadas por $\oplus$ e $\odot$, por
 
-    $$m \ast n = r \qquad \text{ se } \qquad m \ast n = 3q + r$$
+    $$m \oast n = r \qquad \text{ se } \qquad m \ast n = 3q + r$$
 
     com $q \in \mathbb{Z}$, $r \in C$ e $\ast \in \left\{ +, . \right\}$ sendo
     $+$ e $.$ a soma e a multiplicação de $\mathbb{Z}$. Mostre que, com estas
@@ -46,45 +57,7 @@
     $\mathbb{R}$.
 
     \begin{proof}[Resposta]
-        Suponhamos que $\mathbb{Z}$ seja limitado inferior ou superiormente em $\mathbb{R}$.
-        Isso vale $\iff \exists r_1, r_2 \in \mathbb{R}$ tal que $r_1 < q$ e $r_2 > q$
-        $\forall q \in \mathbb{Q}$, pela definição de conjunto limitado superior e
-        inferiormente.
-
-        Vejamos que isso não pode ser válido.
-
-        \begin{lemma}
-            $\forall r \in \mathbb{R}_{\geq 0} \enspace (\exists n \in \mathbb{N} \text{ tal que } n > r$)
-
-            \begin{proof}
-                Veja que, para todo $r < 1$, o Lema vale, pois $1 \in \mathbb{N}$ e $1 > r$. Mas $r > 1 \iff r = a + k$,
-                $0 < a < 1$, $k > 1 - a$.
-                
-                Seja $A = \left\{ x \in \mathbb{R} : x > 1 - a \right\}$ e $k = \inf A$. Observe que $1 - a > 0 \implies k > 0$,
-                e $1 - \frac{a}{2}$ é menor que $1$ e maior que $1 - a$, ou seja, $1$ está contido em $A$ mas não é
-                ínfimo de $A \implies k = \inf A < 1$.
-
-                Mas se $k \in \mathbb{R}_{\geq 0}$ e $k < 1$, sabemos que existe um $k^{\prime} \in \mathbb{N}$ tal que
-                $k^{\prime} > k$. Dessa forma, para todo $r > 1$, $k^{\prime} + a > r \implies k^{\prime} + 1 > r$.
-                
-                Como $k^{\prime} \in \mathbb{N}$, vale que $k^{\prime} + 1 \in \mathbb{N}$ também. Logo,
-                para todo $r \in \mathbb{R}_{\geq 0}$ existe um $n \in \mathbb{N}$ tal que $n > r$.
-            \end{proof}
-        \end{lemma}
-
-        Pelo lema, temos que $\mathbb{N} = \mathbb{Z}_{\geq 0}$ é ilimitado superiormente em $\mathbb{R}_{\geq 0}$.
-        Mas veja que isso também implica que $\mathbb{Z}$ é ilimitado inferiormente em $\mathbb{R}_{\leq 0}$, pois para
-        todo par $(r, z) \in \mathbb{R}_{\leq 0} \times \mathbb{Z}_{\leq 0}$, $r < z \iff -r > -z$. Como
-        $(-r, -z) \in \mathbb{R}_{\geq 0} \times \mathbb{Z}_{\geq 0}$, sabemos que para todo $r \in \mathbb{R}_{\leq 0}$
-        existe par $(-r, -z)$ tal que $-r < -z$ e, com isso, que $\mathbb{Z}_{\leq 0}$ não é limitado inferiormente
-        em $\mathbb{R}_{\leq 0}$.
-
-        Claramente, $\mathbb{Z}_{\geq 0}$ não é limitado superiormente em $\mathbb{R}_{\leq 0}$ e nem $\mathbb{Z}_{\leq 0}$
-        é limitado inferiormente em $\mathbb{R}_{\geq 0}$.
-
-        De todo modo, para todo $r \in \mathbb{R}$, existe $z \in \mathbb{Z}$ tal que $z > r$ ou $z < r$, e sendo assim
-        $\mathbb{Z}$ não é limitado em $\mathbb{R}$.
-
+        $<$TODO: Corrigir a partir do que o Enos disse$>$
     \end{proof}
 \end{enunciado}
 
@@ -105,14 +78,18 @@
                 Veja que $a^2 > 2 \implies a^2 = 2 + k$, $k \in \mathbb{Q}_{>0}$.
                 Assim, seja $b = a - \frac{k}{2a}$. Vejamos que $b \in \mathbb{Q}_{>0}$.
                 
-                Note que $b > 0 \iff a > \frac{k}{2a}$. Mas veja que
+                Note que $b > 0 \iff a > \frac{k}{2a}$. Mas veja que com certeza vale que
+                $a > \frac{k}{2a}$, pois supondo $a \leq \frac{k}{2a}$:
                 \begin{equation} \label{eq:b>0}
                     \begin{split}
                          a \leq \frac{k}{2a} \iff 2a^2 \leq k \implies a^2 \leq k \text
-                         \qquad \text{\Lightning} \quad a > \frac{k}{2a} \implies b > 0
+                         \qquad 
                     \end{split}
                 \end{equation}
-                
+
+                Mas, por hipótese, $a^2 = k + 2$, ou seja, $a^2 > k$, e \ref{eq:b>0} gera
+                contradição.
+
                 Como $b$ é dado puramente por soma e divisão de números racionais, vale também que
                 $b \in \mathbb{Q}$. \qed
 
@@ -192,8 +169,81 @@
     \end{enumerate}
 
     \begin{proof}[Resposta]
-        $<$TODO$>$
+        \begin{enumerate}[label=\alph*)]
+            \item 
+            % % $(a_n)_{n \in \mathbb{N}}$ é não crescente $\iff a_{n+1} \leq a_n$. Veja que
+            % $$
+            %     n \leq 2^{k+1} \iff a_n \leq \frac{1}{n}
+            % $$
+            % $$\text{e}$$
+            % $$
+            %     2^k < n \iff 2^{k+1} < 2n \iff a_n > \frac{1}{2n}
+            % $$
+            % $$\text{Logo,}\qquad \frac{1}{2n} < a_n \leq \frac{1}{n} \text{, \quad ou ainda } \quad n < 2n^2a_n \leq 2n$$
+
+            % % Dessa forma, $\frac{1}{2n} < a_n \leq \frac{1}{n}$. Veja que se $n = 1$ ou $n = 2$ \footnotemark[1], segue que
+            % % $a_{n+1} \leq a_n$:
+
+            % % $$\frac{1}{4} < a_2 \leq \frac{1}{2} < a_1 \leq 1 \implies a_2 < a_1$$
+            % % $$\frac{1}{6} < a_3 \leq \frac{1}{3} \quad \text{e} \quad \frac{1}{4} < a_2 \leq \frac{1}{2} \implies a_2 < a_1$$
+            % Suponhamos $a_{n + 1} > a_n$. Para $a_{n + 1}$, temos:
+
+            % \begin{align*}
+            %     &(2n^2 + 4n + 2) . a_{n+1} \leq 2n + 2\\
+            %     &\iff 2n^2.a_{n+1} + 4n.a_{n+1} + 2.a_{n+1} \leq 2n + 2\\
+            %     &\iff n^2.a_{n+1} + 2n.a_{n+1} + a_{n+1} \leq n + 1\\
+            %     &\iff n^2.a_{n+1} \leq n + 1 - 2n.a_{n+1} - a_{n+1}
+            % \end{align*}
+
+            % $$n^2a_n > \frac{n}{2}$$
+            $(a_n)_{n \in \mathbb{N}}$ é crescente se e somente se:
+
+            \begin{equation} \tag{1} \label{hypot}
+                \begin{split}
+                a_{n+1} > a_n \iff \dfrac{1}{2^{a+1}} > \dfrac{1}{2^{b+1}},2^a < n + 1 \leq 2^{a + 1}\quad\text{e}\quad2^b < n \leq 2^{b + 1}\\
+                a, b \in \mathbb{Z}
+                \end{split}
+            \end{equation}
+
+            Mas \begin{equation} \tag{2} \label{corollary}
+                \dfrac{1}{2^{a+1}} > \dfrac{1}{2^{b+1}} \iff 2^{a+1} < 2^{b+1} \iff 2^a < 2^b
+            \end{equation}
+            
+            Por (\ref{hypot}), $2^b < n$ e $n + 1 \leq 2^{a + 1}$, e portanto $2^b < n + 1 \leq 2^{a+1}$.
+            Unindo isso a (\ref{corollary}), segue que:
+
+            \begin{align*}
+                2^a < 2^b &< n + 1 \leq 2^{a + 1} < 2^{b+1} \implies 2^a < 2^b < 2^{a + 1}\\
+                &\implies 1 < \dfrac{2^b}{2^a} < 2 \iff 1 < 2^{b-a} < 2
+            \end{align*}
+
+            Mas se $a, b \in \mathbb{Z}$, segue que:
+            \begin{enumerate}
+                \item Se $a = b$, então $2^{b-a} = 1$;
+                \item Se $a > b$, então $b - a \leq -1 \implies b - a = -1 - k, k \in \mathbb{Z}_{>0}$, e $2^{-1-k} = \frac{1}{2^{k+1}} < 1$;
+                \item Se $a < b$, então $b - a \geq 1 \implies b - a = 1 + k, k \in \mathbb{Z}_{>0}$, e $2^{1+k} = 2 + 2^k > 2$.
+            \end{enumerate}
+            
+            De todo modo, $1 \geq 2^{b-a}$ ou $2^{b-a} > 2$. \Lightning $a$ não é crescente $\implies a$ é não crescente. \qed
+
+            $(b_n)_{n \in \mathbb{N}}$ é crescente se e somente se:
+            
+            \begin{align*}
+                b_{n+1} > b_n &\iff \sum_{k=1}^{n+1} \dfrac{1}{k} > \sum_{k=1}^n \dfrac{1}{k}\\
+                &\iff \sum_{k=1}^n \dfrac{1}{k} + \dfrac{1}{n+1} > \sum_{k=1}^n \dfrac{1}{k}
+            \end{align*}
+
+            De fato, como $n \in \mathbb{N}^*$, evidentemente $n + 1 \in \mathbb{N}^*$ e, assim, $\dfrac{1}{n+1} > 0$.
+            Portanto, segue que $b_{n+1} > b_n$ e assim que $b$ é crescente. \qed
+
+            \item 
+        \end{enumerate}
     \end{proof}
 \end{enunciado}
+
+\footnote[1]{
+    Não existe $a_0$, pois $\nexists k \in \mathbb{Z}$ tal que $2^k < 0$. 
+    Até por isso acho que no exercício ele pede para $\mathbb{N}^*$.
+}
 
 \end{document}
