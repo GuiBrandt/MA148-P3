@@ -56,8 +56,28 @@
     Mostre que $\mathbb{Z}$ é ilimitado tanto inferior quanto superiormente em
     $\mathbb{R}$.
 
-    \begin{proof}[Resposta]
-        $<$TODO: Corrigir a partir do que o Enos disse$>$
+    \begin{proof}[Resposta (Enos)]
+        Suponha que $\mathbb{Z}$ seja limitado superiormente em $\mathbb{R}$.
+        Como $\mathbb{R}$ é corpo completo, existe $\alpha \in \mathbb{R}$
+        tal que $\alpha = \sup \mathbb{Z}$.
+
+        Veja que $\alpha - 1 < \alpha$, e portanto não é cota superior de
+        $\mathbb{Z}$, pois $\alpha$ é a menor das cotas superiores.
+
+        Mas se $\alpha - 1$ não é cota superior de $\mathbb{Z}$, então
+        $\exists \beta \in \mathbb{Z}$ tal que $\beta > \alpha - 1$, e portanto
+        $\beta > \alpha$. \Lightning \quad $\mathbb{Z}$ não é limitado
+        superiormente em $\mathbb{R}$.
+
+        Suponha agora que $\mathbb{Z}$ seja limitado inferiormente em
+        $\mathbb{R}$. Nesse caso, existe $\gamma \in \mathbb{R}$ tal que
+        $\gamma \leq \beta$ $\forall \beta \in \mathbb{Z}$.
+
+        Mas se existisse tal $\gamma$, valeria que $-\gamma$ é cota superior
+        de $\mathbb{Z}$, caso contrário $\exists \beta \in \mathbb{Z}$ tal que
+        $-\beta < \gamma$. Porém, como já demonstramos, não existe cota superior
+        de $\mathbb{Z}$ em $\mathbb{R}$. \Lightning \quad $\mathbb{Z}$ também 
+        não é limitado inferiormente em $\mathbb{R}$.
     \end{proof}
 \end{enunciado}
 
@@ -71,45 +91,38 @@
     \begin{proof}[Resposta]
         Veja que A tem mínimo $\iff \exists m \in A \text{ tal que } m \leq x \enspace \forall x \in A$.
 
-        \begin{lemma}
-            Para todo $a \in A$, existe um $b \in A$ tal que $b < a$.
+        Mas $a^2 > 2 \implies a^2 = 2 + k$, $k \in \mathbb{Q}_{>0}$.
+        Assim, seja $b = a - \frac{k}{2a}$. Vejamos que $b \in \mathbb{Q}_{>0}$.
+        
+        Note que $b > 0 \iff a > \frac{k}{2a}$. Mas veja que com certeza vale que
+        $a > \frac{k}{2a}$, pois supondo $a \leq \frac{k}{2a}$:
+        \begin{equation} \label{eq:b>0}
+            \begin{split}
+                    a \leq \frac{k}{2a} \iff 2a^2 \leq k \implies a^2 \leq k \text
+                    \qquad 
+            \end{split}
+        \end{equation}
 
-            \begin{proof}
-                Veja que $a^2 > 2 \implies a^2 = 2 + k$, $k \in \mathbb{Q}_{>0}$.
-                Assim, seja $b = a - \frac{k}{2a}$. Vejamos que $b \in \mathbb{Q}_{>0}$.
-                
-                Note que $b > 0 \iff a > \frac{k}{2a}$. Mas veja que com certeza vale que
-                $a > \frac{k}{2a}$, pois supondo $a \leq \frac{k}{2a}$:
-                \begin{equation} \label{eq:b>0}
-                    \begin{split}
-                         a \leq \frac{k}{2a} \iff 2a^2 \leq k \implies a^2 \leq k \text
-                         \qquad 
-                    \end{split}
-                \end{equation}
+        Mas, por hipótese, $a^2 = k + 2$, ou seja, $a^2 > k$, e \ref{eq:b>0} gera
+        contradição.
 
-                Mas, por hipótese, $a^2 = k + 2$, ou seja, $a^2 > k$, e \ref{eq:b>0} gera
-                contradição.
+        Como $b$ é dado puramente por soma e divisão de números racionais, vale também que
+        $b \in \mathbb{Q}$.
 
-                Como $b$ é dado puramente por soma e divisão de números racionais, vale também que
-                $b \in \mathbb{Q}$. \qed
+        Veja também que:
 
-                Veja também que:
+        \begin{equation} \label{eq:b^2_>_2}
+            \begin{split}
+                &b^2 = (a - \frac{k}{2a})^2 = a^2 - k + \frac{k^2}{4a} \\
+                &\text{Mas } k^2 > 0 \text{ e } 4a > 0\text{, logo } \frac{k^2}{4a} > 0 \text{ e portanto } b^2 > a^2 - k = 2
+            \end{split}
+        \end{equation}
 
-                \begin{equation} \label{eq:b^2_>_2}
-                    \begin{split}
-                        b^2 &= (a - \frac{k}{2a})^2 \\
-                            &= a^2 - k + \frac{k^2}{4a} \\
-                            &> a^2 - k = 2
-                    \end{split}
-                \end{equation}
+        Por \ref{eq:b>0} e \ref{eq:b^2_>_2}, temos que $b > 0$ e $b^2 > 2$, logo,
+        $b \in A$. Mas, visto que $k > 0$ e $a > 0 \implies \frac{k}{2a} > 0$,
+        também vale que $b = a - \frac{k}{2a} < a$.
 
-                Por \ref{eq:b>0} e \ref{eq:b^2_>_2}, temos que $b > 0$ e $b^2 > 2$, logo,
-                $b \in A$. Mas, visto que $k > 0$ e $a > 0 \implies \frac{k}{2a} > 0$,
-                também vale que $b < a$. \qedhere
-            \end{proof}
-        \end{lemma}
-
-        Mas veja que, pelo lema, não pode existir
+        Assim, não pode existir
         $m \in A \text{ tal que } m \leq x \enspace \forall x \in A $, pois
         $m \in A \implies \exists m^{\prime} \in A < m$. Logo, $A$ não tem mínimo.
     \end{proof}
@@ -135,8 +148,16 @@
     Considere a sequência $a_n = \frac{n - 1}{n}$, $n \geq 1$. Encontre $n_0 \in \mathbb{N}$
     tal que $0,999 < a_n < 1,001$ para todo $n \geq n_0$.
 
-    \begin{proof}[Resposta]
-        $<$TODO$>$
+    \begin{proof}[Resposta (Enos)]
+        $$a_n = \frac{n - 1}{n}, n \geq 1$$
+        $$0.999 < a_n < 1.001 \quad \forall n \geq n_0$$
+        \begin{align*}
+            &0.999 < a_n < 1.001 \iff 0.999 < \frac{n - 1}{n} < 1.001\\
+            &\iff 0.999 < 1 - \frac{1}{n} < 1.001 \iff -0.001 < -\frac{1}{n} < 0.001\\
+            &\iff |-\frac{1}{n}| < 0.001 \iff \frac{1}{n} < \frac{1}{1000} \iff n > 1000
+        \end{align*}
+
+        Assim, $n_0 = 1001$.
     \end{proof}
 \end{enunciado}
 
@@ -147,8 +168,24 @@
     Mostre que a sequência $a_n = \sqrt{\frac{9n^2 + 3n - 2}{4n^2+4n}}$, $n \geq 1$, converge e
     encontre seu limite.
     
-    \begin{proof}[Resposta]
-        $<$TODO$>$
+    \begin{proof}[Resposta (Igor)]
+        Primeiramente, iremos escrever o termo geral de maneira diferente e equivalente.
+
+        $$a_n = \dfrac{\sqrt{9n^2+3n-2}}{\sqrt{4n^2+4n}}.\frac{1/\sqrt{n^2}}{1/\sqrt{n^2}}
+        = \dfrac{\sqrt{9+\frac{3}{n}-\frac{2}{n^2}}}{\sqrt{4+\frac{4}{n}}}$$
+
+        Mas
+        $\lim_{n \rightarrow \infty}\frac{3}{n}
+        = \lim_{n \rightarrow \infty}-\frac{2}{n^2}
+        = \lim_{n \rightarrow \infty}\frac{4}{n} = 0$
+
+        Dessa forma,
+        
+        $$\lim_{n \rightarrow \infty}
+        \dfrac{\sqrt{9+\frac{3}{n}-\frac{2}{n^2}}}{\sqrt{4+\frac{4}{n}}}
+        = \lim_{n \rightarrow \infty} \dfrac{\sqrt{9+0-0}}{\sqrt{4+0}} = \dfrac{\sqrt{9}}{\sqrt{4}} = \dfrac{3}{2}.$$
+        
+        Logo, a sequência converge e seu limite é $\dfrac{3}{2}$.
     \end{proof}
 \end{enunciado}
 
@@ -169,34 +206,8 @@
     \end{enumerate}
 
     \begin{proof}[Resposta]
-        \begin{enumerate}[label=\alph*)]
-            \item 
-            % % $(a_n)_{n \in \mathbb{N}}$ é não crescente $\iff a_{n+1} \leq a_n$. Veja que
-            % $$
-            %     n \leq 2^{k+1} \iff a_n \leq \frac{1}{n}
-            % $$
-            % $$\text{e}$$
-            % $$
-            %     2^k < n \iff 2^{k+1} < 2n \iff a_n > \frac{1}{2n}
-            % $$
-            % $$\text{Logo,}\qquad \frac{1}{2n} < a_n \leq \frac{1}{n} \text{, \quad ou ainda } \quad n < 2n^2a_n \leq 2n$$
-
-            % % Dessa forma, $\frac{1}{2n} < a_n \leq \frac{1}{n}$. Veja que se $n = 1$ ou $n = 2$ \footnotemark[1], segue que
-            % % $a_{n+1} \leq a_n$:
-
-            % % $$\frac{1}{4} < a_2 \leq \frac{1}{2} < a_1 \leq 1 \implies a_2 < a_1$$
-            % % $$\frac{1}{6} < a_3 \leq \frac{1}{3} \quad \text{e} \quad \frac{1}{4} < a_2 \leq \frac{1}{2} \implies a_2 < a_1$$
-            % Suponhamos $a_{n + 1} > a_n$. Para $a_{n + 1}$, temos:
-
-            % \begin{align*}
-            %     &(2n^2 + 4n + 2) . a_{n+1} \leq 2n + 2\\
-            %     &\iff 2n^2.a_{n+1} + 4n.a_{n+1} + 2.a_{n+1} \leq 2n + 2\\
-            %     &\iff n^2.a_{n+1} + 2n.a_{n+1} + a_{n+1} \leq n + 1\\
-            %     &\iff n^2.a_{n+1} \leq n + 1 - 2n.a_{n+1} - a_{n+1}
-            % \end{align*}
-
-            % $$n^2a_n > \frac{n}{2}$$
-            $(a_n)_{n \in \mathbb{N}}$ é crescente se e somente se:
+        \begin{enumerate}[label=(\alph*)]
+            \item $(a_n)_{n \in \mathbb{N}}$ é crescente se e somente se:
 
             \begin{equation} \tag{1} \label{hypot}
                 \begin{split}
@@ -218,10 +229,10 @@
             \end{align*}
 
             Mas se $a, b \in \mathbb{Z}$, segue que:
-            \begin{enumerate}
+            \begin{enumerate}[label=\arabic*.]
                 \item Se $a = b$, então $2^{b-a} = 1$;
                 \item Se $a > b$, então $b - a \leq -1 \implies b - a = -1 - k, k \in \mathbb{Z}_{>0}$, e $2^{-1-k} = \frac{1}{2^{k+1}} < 1$;
-                \item Se $a < b$, então $b - a \geq 1 \implies b - a = 1 + k, k \in \mathbb{Z}_{>0}$, e $2^{1+k} = 2 + 2^k > 2$.
+                \item Se $a < b$, então $b - a \geq 1 \implies b - a = 1 + k, k \in \mathbb{Z}_{>0}$, e $2^{1+k} = 2.2^k > 2$.
             \end{enumerate}
             
             De todo modo, $1 \geq 2^{b-a}$ ou $2^{b-a} > 2$. \Lightning $a$ não é crescente $\implies a$ é não crescente. \qed
@@ -236,14 +247,21 @@
             De fato, como $n \in \mathbb{N}^*$, evidentemente $n + 1 \in \mathbb{N}^*$ e, assim, $\dfrac{1}{n+1} > 0$.
             Portanto, segue que $b_{n+1} > b_n$ e assim que $b$ é crescente. \qed
 
-            \item 
+            \item Pela definição de $(a_n)_{n \in \mathbb{N}^*}$:
+            \begin{equation}\tag{1}\label{an_leq_1/n}
+                n \leq 2^{k + 1} \implies \dfrac{1}{2^{k+1}} \leq \dfrac{1}{n}
+            \end{equation}
+            Logo, $a_n \leq \dfrac{1}{n}$ $\forall n \in \mathbb{N}^*$.
+            Seja então $s_a$ a série associada a $a$ dada por:
+
+            $$s_n = \sum^n_{i=1}\dfrac{1}{2^{k+1}} \quad \text{onde} \quad 2^k < i \leq 2^{k+1}, k \in \mathbb{Z}$$
+
+            Por (\ref{an_leq_1/n}), segue que $s_n \leq b_n$ $\forall n \in \mathbb{N}^*$.
+
+            $<$TODO$>$
+            
         \end{enumerate}
     \end{proof}
 \end{enunciado}
-
-\footnote[1]{
-    Não existe $a_0$, pois $\nexists k \in \mathbb{Z}$ tal que $2^k < 0$. 
-    Até por isso acho que no exercício ele pede para $\mathbb{N}^*$.
-}
 
 \end{document}
