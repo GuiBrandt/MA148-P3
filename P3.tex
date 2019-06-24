@@ -254,12 +254,57 @@
             Logo, $a_n \leq \dfrac{1}{n}$ $\forall n \in \mathbb{N}^*$.
             Seja então $s_a$ a série associada a $a$ dada por:
 
-            $$s_n = \sum^n_{i=1}\dfrac{1}{2^{k+1}} \quad \text{onde} \quad 2^k < i \leq 2^{k+1}, k \in \mathbb{Z}$$
+            \begin{equation}\tag{2}\label{series}
+                s_n = \sum^n_{i=1}\dfrac{1}{2^{k+1}} \quad \text{onde} \quad 2^k < i \leq 2^{k+1}, k \in \mathbb{Z}
+            \end{equation}
 
             Por (\ref{an_leq_1/n}), segue que $s_n \leq b_n$ $\forall n \in \mathbb{N}^*$.
 
-            $<$TODO$>$
+            % Veja que $2s_n = \sum^n_{i=1}\dfrac{1}{2^k}$. Mas $2^k < i$, logo, certamente
+            % $2s_n < b_n$.
             
+            % Equivalentemente, $2s_n = \sum^n_{i=1}\dfrac{1}{i - r}$, onde
+            % $r = i - 2^k$. Vale que $r > 0$, pois $i > 2^k$.
+
+            Veja que para cada intervalo $(2^k, 2^{k+1}]$, existem
+            $2^{k+1} - 2^k = 2^k$ valores distintos de $i$ para os quais $i$ está
+            contido no intervalo. Também vale que todos tais intervalos são
+            disjuntos de todo outro intervalo com a mesma forma.
+
+            Assim, é justo afirmar que $s_n$ para $n \in \left\{2^{\alpha+1} : \alpha \in \mathbb{N}\right\}$
+            vale
+
+            \begin{equation}\label{crazyness}
+                \begin{split}
+                    s_n &= s_{2^a} + 2^\alpha . \dfrac{1}{2^{\alpha+1}}
+                        = s_{2^a} + \frac{1}{2}
+                \end{split}
+            \end{equation}
+            
+            No caso em que $n = 1$, por (\ref{series}),
+            $s_n = \sum^1_{i=1}\dfrac{1}{2} = \dfrac{1}{2}$,
+            pois a única escolha de $k \in \mathbb{Z}$ tal que
+            $2^k < 1 \leq 2^{k+1}$ é justamente $1$ (Base de indução).
+
+            \paragraph{H.I.} $s_n > \alpha$ para algum $n \in \left\{2^{\alpha+1} : \alpha \in \mathbb{N}\right\}$
+            \paragraph{T.I.} $s_{4n} > \alpha + 1$
+            \footnote{
+                Minha primeira ideia foi usar 2n,
+                mas estava dando $>\alpha + \frac{1}{2}$.
+                Dobrando fica $> \alpha + 1$ e ajeita a indução
+            }
+
+            Veja que $2^a = \frac{n}{2}$. Com isso e (\ref{crazyness}), segue
+            que $s_{2n} = s_n + \frac{1}{2} > \alpha + \frac{1}{2}$, e por
+            conseguinte $s_{4n} = s_{2n} + \frac{1}{2} > \alpha + 1$. \qed
+
+            Assim, $\exists n \in \left\{2^{\alpha+1} : \alpha \in \mathbb{N}\right\}$
+            tal que $s_n > \alpha$ $\forall \alpha \in \mathbb{N}$.
+
+            Mas, dessa forma, claramente $\exists n \in \left\{2^{\alpha+1} : \alpha \in \mathbb{N}\right\}$
+            tal que $b_n > \alpha$ $\forall \alpha \in \mathbb{N}$, pois $b_n \geq s_n$.
+
+            Portanto, $\lim_{n \rightarrow \infty} b_n = +\infty$
         \end{enumerate}
     \end{proof}
 \end{enunciado}
